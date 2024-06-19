@@ -1,19 +1,14 @@
-import mongodb from 'mongodb';
-import Collection from 'mongodb/lib/collection';
-import envLoader from './env_loader';
+import { MongoClient } from 'mongodb';
 
 class DBClient {
   constructor() {
-    envLoader();
     const port = process.env.DB_PORT || 27017;
     const host = process.env.DB_HOST || 'localhost';
-    const db = process.env.DB_DATABASE || 'files_manager';
-    const URL = `mongodb://${host}:${port}/${db}`;
-
-    this.client = new mongodb.MongoClient(URL);
+    const dbName = process.env.DB_NAME || 'files_manager';
+    const url = `mongodb://${host}:${port}/${dbName}`;
+    this.client = new MongoClient(url);
     this.client.connect();
   }
-
 
   isAlive() {
     return this.client.isConnected();
