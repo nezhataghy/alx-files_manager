@@ -2,11 +2,11 @@ import { MongoClient } from 'mongodb';
 
 class DBClient {
   constructor() {
-    const port = process.env.DB_PORT || 27017;
     const host = process.env.DB_HOST || 'localhost';
-    const dbName = process.env.DB_NAME || 'files_manager';
-    const url = `mongodb://${host}:${port}/${dbName}`;
-    this.client = new MongoClient(url);
+    const port = process.env.DB_PORT || 27017;
+    const db = process.env.DB_NAME || 'files_manager';
+    const URL = `mongodb://${host}:${port}/${db}`;
+    this.client = new MongoClient(URL);
     this.client.connect();
   }
 
