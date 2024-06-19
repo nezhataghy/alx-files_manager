@@ -1,14 +1,13 @@
 /* eslint-disable import/no-named-as-default */
-import dbClient from '../utils/db';
 import redisClient from '../utils/redis';
+import dbClient from '../utils/db';
 
-class AppController {
+export default class AppController {
   static getStatus(req, res) {
-    const status = {
+    res.status(200).json({
       redis: redisClient.isAlive(),
       db: dbClient.isAlive(),
-    };
-    res.send(status);
+    });
   }
 
   static getStats(req, res) {
@@ -18,5 +17,3 @@ class AppController {
       });
   }
 }
-
-export default AppController;
