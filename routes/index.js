@@ -15,6 +15,10 @@ const injectRoutes = (api) => {
 
   api.post('/users', UsersController.postNew);
   api.get('/users/me', xTokenAuthenticate, UsersController.getMe);
+  api.post('/files', FilesController.postUpload);
+  api.get('/files/:id', FilesController.getShow);
+  api.get('/files', FilesController.getIndex);
+  api.put('/files/:id/publish', FilesController.putPublish);
 
   api.all('*', (req, res, next) => {
     errorResponse(new APIError(404, `Cannot ${req.method} ${req.url}`), req, res, next);
