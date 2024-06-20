@@ -6,7 +6,6 @@ import mongoDBCore from 'mongodb/lib/core';
 import dbClient from './db';
 import redisClient from './redis';
 
-
 export const getUserFromAuthorization = async (req) => {
   const authorization = req.headers.authorization || null;
 
@@ -29,7 +28,6 @@ export const getUserFromAuthorization = async (req) => {
   }
   return user;
 };
-
 
 export const getUserFromXToken = async (req) => {
   const token = req.headers['x-token'];

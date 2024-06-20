@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Request, Response, NextFunction } from 'express';
 
-
 export class APIError extends Error {
   constructor(code, message) {
     super();

@@ -2,7 +2,6 @@
 import { Request, Response, NextFunction } from 'express';
 import { getUserFromXToken, getUserFromAuthorization } from './utils/auth';
 
-
 export const basicAuthenticate = async (req, res, next) => {
   const user = await getUserFromAuthorization(req);
 
