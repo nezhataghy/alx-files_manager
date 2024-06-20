@@ -4,10 +4,6 @@ import injectRoutes from './routes';
 
 const server = express();
 
-injectMiddlewares(server);
-injectRoutes(server);
-startServer(server);
-
 const injectMiddlewares = (api) => {
     api.use(express.json({ limit: '200mb' }));
   };
@@ -20,6 +16,8 @@ const injectMiddlewares = (api) => {
     });
   };
   
-
+  injectMiddlewares(server);
+  injectRoutes(server);
+  startServer(server);
 
 export default server;

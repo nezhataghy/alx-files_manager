@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Request, Response, NextFunction } from 'express';
-import { getUserFromXToken, getUserFromAuthorization } from '../utils/auth';
+import { getUserFromXToken, getUserFromAuthorization } from './utils/auth';
 
 
 export const basicAuthenticate = async (req, res, next) => {
